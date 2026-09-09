@@ -38,6 +38,19 @@ Os principais objetivos do sistema são:
 - Gerar um documento com o resultado da análise, contendo os erros encontrados e uma versão corrigida ou aprimorada dos artefatos analisados.
 
 ### 2.2 Contexto e Limite do Sistema
+### 2.2 Contexto e Limite do Sistema
+
+O sistema está inserido no contexto da Engenharia de Requisitos e tem como finalidade apoiar a inspeção de artefatos produzidos durante o processo de especificação e documentação de requisitos.
+
+Os usuários poderão criar uma conta, autenticar-se no sistema, submeter artefatos de Engenharia de Requisitos para inspeção e consultar posteriormente o histórico das análises realizadas. Inicialmente, serão considerados artefatos como Casos de Uso e Histórias de Usuário, incluindo representações relacionadas, como diagramas e especificações textuais.
+
+A inspeção será realizada com o apoio de Large Language Models (LLMs), acessadas por meio de uma API externa. O sistema será responsável por preparar e encaminhar os artefatos para análise, receber os resultados produzidos pela LLM e apresentá-los ao usuário de forma estruturada.
+
+Como resultado da inspeção, o sistema deverá identificar problemas como ambiguidades, lacunas, incompletudes, imprecisões e inconsistências entre artefatos relacionados, além de gerar um documento contendo os problemas encontrados e uma versão revisada dos artefatos.
+
+Dentro dos limites do sistema estão o gerenciamento de usuários, autenticação, submissão e armazenamento dos artefatos, gerenciamento do histórico de inspeções, comunicação com a API da LLM, processamento dos resultados e disponibilização dos documentos gerados.
+
+A LLM utilizada para realizar a análise não faz parte do sistema, sendo considerada um serviço externo acessado por API. Também está fora do escopo do sistema substituir completamente a avaliação humana ou executar todas as atividades do processo de Engenharia de Requisitos.
 
 ### 2.3 Estrutura Geral do Sistema
 
