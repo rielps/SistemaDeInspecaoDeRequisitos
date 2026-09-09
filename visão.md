@@ -65,18 +65,111 @@ Os principais componentes são:
 
 - **Gerenciamento de Usuários:** responsável pelo cadastro, autenticação e gerenciamento das contas dos usuários;
 - **Gerenciamento de Artefatos:** responsável pela submissão, armazenamento e consulta dos artefatos de Engenharia de Requisitos enviados ao sistema;
-- **Inspeção de Artefatos:** responsável pela preparação dos artefatos e pela comunicação, por meio de API, com o serviço externo de Large Language Model (LLM) utilizado na inspeção;
 - **Gerenciamento de contexto**: responsável por estruturar e fornecer à LLM as instruções, regras, critérios de inspeção e informações relavantes para a análise dos artefatos, utilizando e aplicando técnicas de engenharia de prompts e mecanismos de recuperação de informações (RAG);
+- **Inspeção de Artefatos:** responsável pela preparação dos artefatos e pela comunicação, por meio de API, com o serviço externo de Large Language Model (LLM) utilizado na inspeção;
 - **Resultados da Inspeção:** responsável por organizar e apresentar os problemas identificados, além de disponibilizar a versão revisada dos artefatos analisados;
-- **Histórico de Inspeções:** responsável pelo armazenamento e consulta das inspeções realizadas anteriormente pelo usuário.
+- **Armazenamento e histórico:** responsável pelo armazenamento e consulta das inspeções realizadas anteriormente pelo usuário.
 
-A LLM utilizada na análise não faz parte da estrutura interna do sistema, sendo considerada um serviço externo acessado por API.
 
 ## 3. Requisitos do Sistema
 
 ## 3.1 Por subsistema/componente
+Requisitos organizados por subsistemas, definidos pelos componentes estruturados no módulo 2.3. Ao total, são 6 subsistemas trabalhados. 
+Em cada subsistema os requisitos são separados em: Requisitos Funcionais (RF); Requisitos de Qualidade (RQ) e Restrições (RES).
 
-## 3.2 Requisistos funcionais, de qualidade e restrições
+### 3.1.1 Subsistema de gerenciamento de usuários
+
+#### Requisitos Funcionais:
+
+| ID | Requisito |
+|---|---|
+| RF-USU-01 | O sistema deve permitir o cadastro de novos usuários com nome, e-mail e senha |
+| RF-USU-02 | O sistema deve realizar a autenticação do usuário para concessão de acesso às funcionalidades |
+| RF-USU-03 | O sistema deve permitir que o usuário encerre sua sessão |
+| RF-USU-04 | O sistema deve permitir que o usuário consulte e altere seus dados cadastrais |
+| RF-USU-05 | O sistema deve permitir que o usuário alterinha sua senha mediante a confirmação da senha atual |
+| RF-USU-06 | O sistema deve permitir que o usuário exclua sua própria contra |
+
+#### Requisitos de Qualidade
+
+| ID | Categoria | Requisito |
+|---|---|---|
+| RQ-USU-01 | Segurança | O sistema deve armazenar as senhas dos usuários utilizando o mecanismo de hash de senhas disponibilizado pelo Django, não armazenando as senhas em texto puro |
+| RQ-USU-02 | Segurança | O sistema deve bloquear novas tentativas de autenticação após 5 tentativas consecutivas de login com credenciais inválidas durante um período de 15 minutos |
+| RQ-USU-03 | Segurança | O sistema deve rejeitar requisições realizada com tokens de autenticação expirados ou inválidos |
+| RQ-USU-04 | Usabilidade | O sistema deve informar ao suuário quando os dados fornecidos durante o cadastro forem inválidos |
+
+#### Restrições
+
+| ID | Restrição |
+|---|---|
+| RES-USU-01 | A autenticação de sessão deve utilizar tokens JWT com tempo de expiração configurável |
+| RES-USU-02 | O sistema não deve armazenar as senhas dos usuários em texto puro |
+
+### 3.1.2 Subsistema de gerenciamento de artefatos
+
+#### Requisitos Funcionais:
+
+| ID | Requisito |
+|---|---|
+| RF-ART-01 | O sistema deve disponibilizar um formulário estruturado para preenchimento de histórias de usuário (Papel, Ação, Benefício e Critérios de Aceitação |
+| RF-ART-02 | O sistema deve disponibilizar um formulário estruturado para preenchimento de Casos de Uso (Ator Principal, Pré-Condições, Fluxo principal e alternativos, Pós-condições)
+| RF-ART-03 | O sistema deve permitir ao usuário submeter e associar um ou mais diagramas a uma História de usuário ou Caso de Uso durante sua criação ou posteriormente |
+| RF-ART-04 | O sistema deve permitir ao usuário visualizar os artefatos cadastrados, apresentando suas respectivas informações, como prioridade e status |
+| RF-ART-05 | O sistema deve permitir ao usuário editar os dados dos artefatos cadastrados |
+| RF-ART-06 | O sistema deve permitir ao usuário excluir os artefatos cadastrados |
+| RF-ART-07 | O sistema deve permitir ao usuário alterar a prioridade de um artefato cadastrado |
+| RF-ART-08 | O sistema deve permitir ao usuário alterar o status de um artefato entre os estados disponíveis no backlog de acompanhamento |
+| Rf-ART-09 | O sistema deve permitir ao usuário visualizar os diagramas associados aos respectivos artefatos |
+| RF-ART-10 | O sistema deve permitir ao usuário remover ou substituir um diagrama associado a um artefato |
+
+#### Requisitos de Qualidade
+
+| ID | Tipo | Requisito |
+|---|---|
+| RQ-ART-01 | Usabilidade | Os formulários devem conter validações em tempo real para impedir a submissão de campos obrigatórios vazios |
+| RQ-ART-02 | Desempenho | O sistema deve concluir a operação de salvamento de um artefato em até 2 segundos |
+| RQ-ART-03 | Integridade | O sistema deve preservar os dados de um artefato durante operações de edição, não alterando campos que não tenham sido modificados pelo usuário |
+| RQ-ART-04 | Usbailidade | O sistema deve apresentar uma mensagem de confirmação antes da exclusão definitiva de um artefato |
+
+#### Restrições
+
+| ID | Restrição |
+|---|---|
+| RES-USU-01 | O tamanho total do texto do artefato enviado não pode ultrapassar o limite estipulado de caracteres por requisição |
+| RES-USU-02 | Os diagramas associados aos artefatos devem ser enviados em formatos de arquivo PDF, JPG ou PNG |
+
+
+### 3.1.3 Subsistema de gerenciamento de contexto
+
+#### Requisitos Funcionais:
+
+| ID | Requisito |
+|---|---|
+| RF-CTX-01 | O sistema deve fornecer à LLM instruções estruturadas contendo os critérios, regras e etapas definidos para a inspeção dos artefatos de Engenharia de Requisitos (o prompt) |
+| RF-CTX-02 | O sistema deve recuperar, por meio de RAG, informações relevantes da base de conhecimento para complementar o contexto utilizado na inspeção do artefato |
+| RF-CTX-03 | O sistema deve considerar, na construção do contexto da inspeção, o artefato submetido pelo usuário e os critérios de Engenharia de Requisitos aplicáveis ao seu tipo recuperados via RAG |
+| RF-CTX-04 | O sistema deve fornecer à LLM instruções que definam a estrutura e os campos obrigatórios da resposta esperada para a inspeção (template de resposta) |
+
+#### Requisitos de qualidade
+
+| ID | Tipo | Requisito |
+|---|---|
+| RQ-CTX-01 | Integrudade | O sistema não deve alterar o conteúdo original do artefato durante a construção do contexto enviado à LLM |
+| RQ-CTX-02 | Segurança | O sistema deve tratar o conteúdo fornecido pelo usuário como dado não confiável e impedir que instruções presentes no artefato alterem as instruções de inspeção fornecidas pelo sistema |
+
+#### Restrições
+
+| ID | Restrição |
+|---|---|
+| RES-CTX-01 |A base de conhecimento utilizada pelo mecanismo de RAG deve conter apenas conteúdos previamente definidos como fontes de referência para os critérios de inspeção do projeto |
+| RES-CTX-02 | O contexto enviado à LLM deve respeitar o limite de entrada suportado pelo modelo utilizado pela aplicação |
+
+### 3.1.4 Subsistema de inspeção e artefatos
+
+### 3.1.5 Subsistema de resultados da inspeção
+
+### 3.1.6 Subsistema de Armazenamento e Histórico
 
 ## 3.3 Interfaces
 
