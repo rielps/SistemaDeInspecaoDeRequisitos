@@ -38,8 +38,6 @@ Os principais objetivos do sistema são:
 - Gerar um documento com o resultado da análise, contendo os erros encontrados e uma versão corrigida ou aprimorada dos artefatos analisados.
 
 ### 2.2 Contexto e Limite do Sistema
-### 2.2 Contexto e Limite do Sistema
-
 O sistema está inserido no contexto da Engenharia de Requisitos e tem como finalidade apoiar a inspeção de artefatos produzidos durante o processo de especificação e documentação de requisitos.
 
 Os usuários poderão criar uma conta, autenticar-se no sistema, submeter artefatos de Engenharia de Requisitos para inspeção e consultar posteriormente o histórico das análises realizadas. Inicialmente, serão considerados artefatos como Casos de Uso e Histórias de Usuário, incluindo representações relacionadas, como diagramas e especificações textuais.
@@ -53,6 +51,17 @@ Dentro dos limites do sistema estão o gerenciamento de usuários, autenticaçã
 A LLM utilizada para realizar a análise não faz parte do sistema, sendo considerada um serviço externo acessado por API. Também está fora do escopo do sistema substituir completamente a avaliação humana ou executar todas as atividades do processo de Engenharia de Requisitos.
 
 ### 2.3 Estrutura Geral do Sistema
+O sistema será estruturado em componentes responsáveis pelas principais funcionalidades oferecidas ao usuário. Essa divisão tem como objetivo organizar as responsabilidades do sistema e facilitar a definição dos requisitos associados a cada parte.
+
+Os principais componentes são:
+
+- **Gerenciamento de Usuários:** responsável pelo cadastro, autenticação e gerenciamento das contas dos usuários;
+- **Gerenciamento de Artefatos:** responsável pela submissão, armazenamento e consulta dos artefatos de Engenharia de Requisitos enviados ao sistema;
+- **Inspeção de Artefatos:** responsável pela preparação dos artefatos e pela comunicação, por meio de API, com o serviço externo de Large Language Model (LLM) utilizado na inspeção;
+- **Resultados da Inspeção:** responsável por organizar e apresentar os problemas identificados, além de disponibilizar a versão revisada dos artefatos analisados;
+- **Histórico de Inspeções:** responsável pelo armazenamento e consulta das inspeções realizadas anteriormente pelo usuário.
+
+A LLM utilizada na análise não faz parte da estrutura interna do sistema, sendo considerada um serviço externo acessado por API.
 
 ## 3. Requisitos do Sistema
 
