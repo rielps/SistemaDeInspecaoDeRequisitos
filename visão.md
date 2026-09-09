@@ -17,11 +17,19 @@ Para além disso, deve também detectar inconsistências entre os artefatos prod
 - Estudantes de TI
 
 #### No escopo
-Delimita o que será desenvolvidos/modificado pela equipe
+Delimita o que será projetado e desenvolvidos pela equipe:
+
+- **Tela de História de Usuário (HU):** Formulário pré-definido com campos estruturados para requisitos em formato de Histórias de Usuário;
+- **Tela de Caso de Uso (CDU):**  Formulário pré-definido com campos estruturados para requisitos em formato de Casos de Uso;
+- **Módulo de Engenharia de Prompts e Comunicação:** lógica interna responsável por capturar texto digitado dos requisitos, formatar prompt e enviar requisição para API da LLM integrada; 
+- **Tela/Módulo de Exibição de Resultados:** Interface que exibe feedback do agente, onde o usuário poderá visualizar os resultados da análise. 
+- **Módulo de Armazenamento e Histórico:** Banco de dados para persistir as HUs, CDUs e os relatórios de análise gerados pela IA;
 
 #### Fora do escopo
 Não sofrerá alterações pelo projeto
 
+- Agente de IA: será apenas consumido a API e não criado um agente do zero; 
+- Provedor de Hospedagem/Nuvem: a infrestrutura de nuvem onde a aplicação rodará. 
 
 ## 2. Visão Geral do sistema
 
