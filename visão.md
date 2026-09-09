@@ -19,17 +19,19 @@ Para além disso, deve também detectar inconsistências entre os artefatos prod
 #### No escopo
 Delimita o que será projetado e desenvolvidos pela equipe:
 
-- **Tela de História de Usuário (HU):** Formulário pré-definido com campos estruturados para requisitos em formato de Histórias de Usuário;
-- **Tela de Caso de Uso (CDU):**  Formulário pré-definido com campos estruturados para requisitos em formato de Casos de Uso;
+- **Módulo de Gerenciamento de usuários**: lógica das funcionalidades relacionadas ao cadastro, autenticação, gerenciamento e identificação dos usuários do sistema. 
+- **Tela de História de Usuário (HU):** Formulário pré-definido com campos estruturados para requisitos em formato de Histórias de Usuário, com permissão de submissão de diagramas;
+- **Tela de Caso de Uso (CDU):**  Formulário pré-definido com campos estruturados para requisitos em formato de Casos de Uso, com permissão de submissão de diagramas;
 - **Módulo de Engenharia de Prompts e Comunicação:** lógica interna responsável por capturar texto digitado dos requisitos, formatar prompt e enviar requisição para API da LLM integrada; 
+- **Módulo de Gerenciamento de Contexto**: lógica de organizar a fornecer à LLm as instruções, critérios de inspeção, regras e informações relevantes para análise dos artefatos;
 - **Tela/Módulo de Exibição de Resultados:** Interface que exibe feedback do agente, onde o usuário poderá visualizar os resultados da análise. 
 - **Módulo de Armazenamento e Histórico:** Banco de dados para persistir as HUs, CDUs e os relatórios de análise gerados pela IA;
 
 #### Fora do escopo
 Não sofrerá alterações pelo projeto
 
-- Agente de IA: será apenas consumido a API e não criado um agente do zero; 
-- Provedor de Hospedagem/Nuvem: a infrestrutura de nuvem onde a aplicação rodará. 
+- **Uso da LLM via API**: será apenas consumido a API e não criado uma LLM do zero; 
+- **Provedor de Hospedagem/Nuvem:** a infrestrutura de nuvem onde a aplicação rodará. 
 
 ## 2. Visão Geral do sistema
 
@@ -39,7 +41,7 @@ O sistema tem como visão apoiar a elaboração e a inspeção de artefatos de E
 Os principais objetivos do sistema são:
 
 - Permitir que usuários submetam artefatos de Engenharia de Requisitos por meio de uma interface simples e acessível;
-- Utilizar agentes baseados em Large Language Models (LLMs) para realizar a inspeção dos artefatos submetidos;
+- Utilizar uma Large Language Model (LLM), acessada por meio de uma API externa, para realizar a inspeção dos artefatos.
 - Identificar problemas como ambiguidades, lacunas, incompletudes e imprecisões nos requisitos;
 - Verificar inconsistências entre diferentes artefatos relacionados, como diagramas e suas respectivas especificações;
 - Apresentar ao usuário os problemas identificados durante a inspeção;
@@ -56,8 +58,6 @@ Como resultado da inspeção, o sistema deverá identificar problemas como ambig
 
 Dentro dos limites do sistema estão o gerenciamento de usuários, autenticação, submissão e armazenamento dos artefatos, gerenciamento do histórico de inspeções, comunicação com a API da LLM, processamento dos resultados e disponibilização dos documentos gerados.
 
-A LLM utilizada para realizar a análise não faz parte do sistema, sendo considerada um serviço externo acessado por API. Também está fora do escopo do sistema substituir completamente a avaliação humana ou executar todas as atividades do processo de Engenharia de Requisitos.
-
 ### 2.3 Estrutura Geral do Sistema
 O sistema será estruturado em componentes responsáveis pelas principais funcionalidades oferecidas ao usuário. Essa divisão tem como objetivo organizar as responsabilidades do sistema e facilitar a definição dos requisitos associados a cada parte.
 
@@ -66,6 +66,7 @@ Os principais componentes são:
 - **Gerenciamento de Usuários:** responsável pelo cadastro, autenticação e gerenciamento das contas dos usuários;
 - **Gerenciamento de Artefatos:** responsável pela submissão, armazenamento e consulta dos artefatos de Engenharia de Requisitos enviados ao sistema;
 - **Inspeção de Artefatos:** responsável pela preparação dos artefatos e pela comunicação, por meio de API, com o serviço externo de Large Language Model (LLM) utilizado na inspeção;
+- **Gerenciamento de contexto**: responsável por estruturar e fornecer à LLM as instruções, regras, critérios de inspeção e informações relavantes para a análise dos artefatos, utilizando e aplicando técnicas de engenharia de prompts e mecanismos de recuperação de informações (RAG);
 - **Resultados da Inspeção:** responsável por organizar e apresentar os problemas identificados, além de disponibilizar a versão revisada dos artefatos analisados;
 - **Histórico de Inspeções:** responsável pelo armazenamento e consulta das inspeções realizadas anteriormente pelo usuário.
 
