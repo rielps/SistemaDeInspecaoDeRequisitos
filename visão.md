@@ -156,7 +156,7 @@ Em cada subsistema os requisitos são separados em: Requisitos Funcionais (RF); 
 | ID | Tipo | Requisito |
 |---|---|
 | RQ-CTX-01 | Integrudade | O sistema não deve alterar o conteúdo original do artefato durante a construção do contexto enviado à LLM |
-| RQ-CTX-02 | Segurança | O sistema deve tratar o conteúdo fornecido pelo usuário como dado não confiável e impedir que instruções presentes no artefato alterem as instruções de inspeção fornecidas pelo sistema |
+| RQ-CTX-02 | Segurança | O sistema deve tratar o conteúdo fornecido pelo usuário como dado não confiável e impedir que instruções presentes no artefato alterem as instruções de inspeção fornecidas pelo sistema (injeção de prompt) |
 
 #### Restrições
 
@@ -172,5 +172,8 @@ Em cada subsistema os requisitos são separados em: Requisitos Funcionais (RF); 
 ### 3.1.6 Subsistema de Armazenamento e Histórico
 
 ## 3.3 Interfaces
+Não há interfaces definidas no momento para este projeto. 
 
 ## 4. Referências
+1. **ISO/IEC/IEEE 29148:2018:** *Systems and software engineering — Life cycle processes — Requirements engineering.*
+2.  **Guia de Estudos CPRE Foundation Level (v1.2):** *International Requirements Engineering Board (IREB).*
