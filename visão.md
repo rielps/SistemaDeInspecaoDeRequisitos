@@ -126,11 +126,11 @@ Em cada subsistema os requisitos são separados em: Requisitos Funcionais (RF); 
 #### Requisitos de Qualidade
 
 | ID | Tipo | Requisito |
-|---|---|
+|---|---|---|
 | RQ-ART-01 | Usabilidade | Os formulários devem conter validações em tempo real para impedir a submissão de campos obrigatórios vazios |
 | RQ-ART-02 | Desempenho | O sistema deve concluir a operação de salvamento de um artefato em até 2 segundos |
 | RQ-ART-03 | Integridade | O sistema deve preservar os dados de um artefato durante operações de edição, não alterando campos que não tenham sido modificados pelo usuário |
-| RQ-ART-04 | Usbailidade | O sistema deve apresentar uma mensagem de confirmação antes da exclusão definitiva de um artefato |
+| RQ-ART-04 | Usabilidade | O sistema deve apresentar uma mensagem de confirmação antes da exclusão definitiva de um artefato |
 
 #### Restrições
 
