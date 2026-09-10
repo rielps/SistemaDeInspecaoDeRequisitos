@@ -256,3 +256,4 @@ Não há interfaces definidas no momento para este projeto.
 ## 4. Referências
 1. **ISO/IEC/IEEE 29148:2018:** *Systems and software engineering — Life cycle processes — Requirements engineering.*
 2.  **Guia de Estudos CPRE Foundation Level (v1.2):** *International Requirements Engineering Board (IREB).*
+3. **International Requirements Engineering Board (IREB):** Site oficial do IREB e materiais sobre Requirements Engineering e CPRE. Disponível em: https://ireb.org/
