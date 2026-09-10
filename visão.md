@@ -167,6 +167,33 @@ Em cada subsistema os requisitos são separados em: Requisitos Funcionais (RF); 
 
 ### 3.1.4 Subsistema de inspeção e artefatos
 
+#### Requisitos Funcionais:
+
+| ID | Requisito |
+|---|---|
+| RF-INS-01 | O sistema deve permitir ao usuário solicitar a inspeção de um artefato cadastrado |
+| RF-INS-02 | O sistema deve permitir a inspeção conjunta de artefatos relacionados para verificar inconsistências entre eles |
+| RF-INS-03 | O sistema deve utilizar o contexto preparado para a inspeção dos artefatos selecionados |
+| RF-INS-04 | O sistema deve enviar os artefatos e o contexto de inspeção à LLM por meio de API |
+| RF-INS-05 | O sistema deve receber a resposta retornada pela LLM após a inspeção |
+| RF-INS-6 | O sistema informar ao usuário quanto ao tempo restante para a conclusão da inspeção |
+| RF-INS-07 | O sistema deve informar ao usuário quando a inspeção não puder ser concluída |
+
+#### Requisitos de qualidade:
+
+| ID | Requisito |
+|---|---|
+| RQ-INS-01 | O sistema deve manter a integridade dos artefatos e do contexto enviados para inspeção |
+| RQ-INS-02 | O sistema deve tratar falhas na comunicação com a LLM sem comprometer o funcionamento das demais funcionalidades |
+| RQ-INS-03 | O sistema deve realizar a comunicação com o serviço de LLM de forma segura |
+
+#### Restrições:
+
+| ID | Requisito |
+|---|---|
+| RES-INS-01 | A inspeção dos artefatos deve ser realizada utilizando um serviço externo de LLM por meio de API |
+| RES-INS-02 | A execução das inspeções está sujeita à disponibilidade e aos limites de uso da API da LLM utilizada |
+
 ### 3.1.5 Subsistema de resultados da inspeção
 
 ### 3.1.6 Subsistema de Armazenamento e Histórico
