@@ -196,6 +196,32 @@ Em cada subsistema os requisitos são separados em: Requisitos Funcionais (RF); 
 
 ### 3.1.5 Subsistema de resultados da inspeção
 
+#### Requisitos Funcionais:
+
+| ID | Requisito |
+|---|---|
+| RF-RST-01 | O sistema deve apresentar ao usuário os resultados obtidos após a inspeção dos artefatos |
+| RF-RST-02 | O sistema deve apresentar os problemas identificados de acordo com o tipo de irregularidade encontrada |
+| RF-RST-03 | O sistema deve indicar em qual parte do artefato cada problema foi identificado |
+| RF-RST-04 | O sistema deve apresentar uma descrição dos problemas encontrados e sugestões para sua correção |
+| RF-RST-05 | O sistema deve disponibilizar uma versão corrigida do artefato com base nos resultados da inspeção |
+| RF-RST-06 | O sistema deve permitir a geração de um documento contendo os problemas identificados e as correções sugeridas |
+
+#### Requisitos de qualidade:
+
+| ID | Requisito |
+|---|---|
+| RQ-RST-01 | Os resultados da inspeção devem ser apresentados de forma clara e organizada |
+| RQ-RST-02 | O sistema deve manter a correspondência entre os problemas apresentados e os artefatos inspecionados |
+| RQ-RST-03 | O sistema deve diferenciar visualmente os tipos de problemas identificados durante a inspeção |
+
+#### Restrições:
+
+| ID | Requisito |
+|---|---|
+| RES-RST-01 | Os resultados apresentados devem ser baseados na resposta retornada pelo serviço de LLM utilizado na inspeção |
+| RES-RST-02 | A versão corrigida do artefato deve preservar as informações originais que não tenham sido identificadas como problemáticas |
+
 ### 3.1.6 Subsistema de Armazenamento e Histórico
 
 ## 3.3 Interfaces
