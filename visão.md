@@ -224,6 +224,32 @@ Em cada subsistema os requisitos são separados em: Requisitos Funcionais (RF); 
 
 ### 3.1.6 Subsistema de Armazenamento e Histórico
 
+#### Requisitos Funcionais:
+
+| ID | Requisito |
+|---|---|
+| RF-HIS-01 | O sistema deve armazenar as inspeções realizadas e seus respectivos resultados |
+| RF-HIS-02 | O sistema deve associar cada inspeção ao usuário e aos artefatos analisados |
+| RF-HIS-03 | O sistema deve registrar a data e o horário de realização de cada inspeção |
+| RF-HIS-04 | O sistema deve permitir ao usuário consultar o histórico de inspeções realizadas |
+| RF-HIS-05 | O sistema deve permitir ao usuário visualizar os detalhes e resultados de uma inspeção anterior |
+| RF-HIS-06 | O sistema deve permitir ao usuário excluir registros de inspeções do seu histórico |
+
+#### Requisitos de qualidade:
+
+| ID | Requisito |
+|---|---|
+| RQ-HIS-01 | O sistema deve manter a integridade dos dados armazenados das inspeções |
+| RQ-HIS-02 | O histórico deve ser organizado de forma que facilite a identificação e consulta das inspeções realizadas |
+| RQ-HIS-03 | O sistema deve garantir que cada usuário tenha acesso apenas ao seu próprio histórico de inspeções |
+
+#### Restrições:
+
+| ID | Requisito |
+|---|---|
+| RES-HIS-01 | As informações das inspeções e do histórico devem ser armazenadas em banco de dados |
+| RES-HIS-02 | Cada registro do histórico deve permanecer associado ao usuário e aos artefatos correspondentes |
+
 ## 3.3 Interfaces
 Não há interfaces definidas no momento para este projeto. 
 
