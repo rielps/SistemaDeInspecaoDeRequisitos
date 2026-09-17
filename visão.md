@@ -3,7 +3,7 @@
 ## 1. Introdução
 
 ### 1.1 Objetivo do sistema
-O objetivo do Sistema é fazer uma revisão e análise de requisitos e artefatos feitos por pessoas leigas, durante a fase de especificação. 
+O objetivo do Sistema é fazer uma revisão e análise de requisitos e artefatos (textuais e não textuais, como imagens ou pdf) feitos por pessoas leigas, durante a fase de especificação. 
 
 O Sistema deve através dessa inspeção identificar ambiguidades, armadilhas e incompletudes dos requisitos especificados, entre outros defeitos de estrutura e semântica.
 Para além disso, deve também detectar inconsistências entre os artefatos produzidos. Tudo isso afim de gerar relatórios com a correção e feedback das falhas encontradas. 
@@ -19,9 +19,9 @@ Para além disso, deve também detectar inconsistências entre os artefatos prod
 #### No escopo
 Delimita o que será projetado e desenvolvidos pela equipe:
 
-- **Módulo de Gerenciamento de usuários**: lógica das funcionalidades relacionadas ao cadastro, autenticação, gerenciamento e identificação dos usuários do sistema. 
-- **Tela de História de Usuário (HU):** Formulário pré-definido com campos estruturados para requisitos em formato de Histórias de Usuário, com permissão de submissão de diagramas;
-- **Tela de Caso de Uso (CDU):**  Formulário pré-definido com campos estruturados para requisitos em formato de Casos de Uso, com permissão de submissão de diagramas;
+- **Módulo de Gerenciamento de usuários**: lógica das funcionalidades relacionadas ao cadastro, autenticação, gerenciamento e identificação dos usuários do sistema e seus devidos projetos.  
+- **Tela de História de Usuário (HU):** Upload e formulário pré-definido com campos estruturados para requisitos em formato de Histórias de Usuário, com permissão de submissão de diagramas, separados por sistema. 
+- **Tela de Caso de Uso (CDU):**  Upload e formulário pré-definido com campos estruturados para requisitos em formato de Casos de Uso, com permissão de submissão de diagramas, separados por sistema. 
 - **Módulo de Engenharia de Prompts e Comunicação:** lógica interna responsável por capturar texto digitado dos requisitos, formatar prompt e enviar requisição para API da LLM integrada; 
 - **Módulo de Gerenciamento de Contexto**: lógica de organizar a fornecer à LLm as instruções, critérios de inspeção, regras e informações relevantes para análise dos artefatos;
 - **Tela/Módulo de Exibição de Resultados:** Interface que exibe feedback do agente, onde o usuário poderá visualizar os resultados da análise. 
