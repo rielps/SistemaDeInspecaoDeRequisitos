@@ -1,4 +1,4 @@
-# Diagrama de Contexto 
+# Diagrama de Contexto
 
 Diagrama de contexto c4 que apresenta uma visão geral do sistema, mostrando quem interage (usuário) e qual sistema externo está relacionado.
 
