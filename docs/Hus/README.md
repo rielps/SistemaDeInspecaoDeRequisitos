@@ -27,8 +27,6 @@ Componente responsável pelo cadastro, autenticação e gerenciamento das contas
 ### Gerenciamento de Artefatos
 Componente responsável pela submissão, armazenamento e consulta dos artefatos de Engenharia de Requisitos enviados ao sistema (seção 2.3 e 3.1.2 de `visão.md`).
 
-> Observação: `visão.md` rotula as restrições desse subsistema como `RES-USU-01`/`RES-USU-02` (seção 3.1.2), aparentemente por um erro de digitação, já que tratam de artefatos (limite de caracteres e formato de diagramas). Nas HUs abaixo, essas restrições são referenciadas como `RES-ART-01` e `RES-ART-02` para manter a rastreabilidade coerente com o prefixo do subsistema — vale revisar/corrigir o `visão.md`.
-
 | HU | Título |
 |---|---|
 | [HU-ART-01](HU-ART-01-criar-hu.md) | Criar História de Usuário (HU) |
