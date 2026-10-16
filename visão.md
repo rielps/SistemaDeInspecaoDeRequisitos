@@ -73,6 +73,8 @@ Os principais componentes são:
 
 ## 3. Requisitos do Sistema
 
+> **OBS:** Os requisitos de qualidade e as restrições foram revisados com base na ISO/IEC 25010 e estão em [requisitos-qualidade-restricoes.md](requisitos-qualidade-restricoes.md)
+
 ## 3.1 Por subsistema/componente
 Requisitos organizados por subsistemas, definidos pelos componentes estruturados no módulo 2.3. Ao total, são 6 subsistemas trabalhados. 
 Em cada subsistema os requisitos são separados em: Requisitos Funcionais (RF); Requisitos de Qualidade (RQ) e Restrições (RES).
