@@ -15,7 +15,7 @@ jobs:
 
       - name: Analisar requisitos
         id: analise
-        uses: gabysmm/automatizacao-de-analise-de-requisitos-action@feat/composite-action
+        uses: gabysmm/automatizacao-de-analise-de-requisitos-action@fix/validacao-hu
         with:
           api-key: ${{ secrets.LLM_API_KEY }}
           pasta-hus: docs/Hus
