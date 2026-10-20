@@ -1,0 +1,28 @@
+name: Análise de requisitos
+
+on:
+  push:
+    paths:
+      - "docs/Hus/**"
+  workflow_dispatch:
+
+jobs:
+  analise:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Analisar requisitos
+        id: analise
+        uses: gabysmm/automatizacao-de-analise-de-requisitos-action@feat/composite-action
+        with:
+          api-key: ${{ secrets.LLM_API_KEY }}
+          pasta-hus: docs/Hus
+
+      - name: Salvar resultado
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultado-analise
+          path: ${{ steps.analise.outputs.resultado }}
